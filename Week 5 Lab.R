@@ -1,3 +1,4 @@
+library(SDSFoundations)
 WR <- WorldRecords
 
 # Subset the data
@@ -9,5 +10,5 @@ plot(mensMile$Year, mensMile$Record)
 plot(womensMile$Year, womensMile$Record)
 
 # Run linear models
-abline(lm(mensMile$Record~mensMile$Year))
-abline(womensMile$Year, womensMile$Record)
+linFit(mensMile$Year, mensMile$Record)
+linFit(womensMile$Year, womensMile$Record)

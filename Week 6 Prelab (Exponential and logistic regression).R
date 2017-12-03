@@ -17,9 +17,16 @@ us_select$time <- us_select$year - 1990
 us_select_10 <- us_select[us_select$time < 10,]
 
 # Use a function to fit an exponential and logistic model for 1990-1999
+linFit(us_select_10$time, us_select_10$internet.mil)
 expFit(us_select_10$time, us_select_10$internet.mil)
 logisticFit(us_select_10$time, us_select_10$internet.mil)
 
 # Based on the prior model parameters, predict the number of internet users in 2006
+lin <- linFitPred(us_select_10$time, us_select_10$internet.mil, 16)
 e <- expFitPred(us_select_10$time, us_select_10$internet.mil, 16)
 l <- logisticFitPred(us_select_10$time, us_select_10$internet.mil, 16)
+
+# Residuals
+205.676834 - lin
+205.676834 - e
+205.676834 - l
